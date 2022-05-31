@@ -3,9 +3,6 @@
 // 8: BlackJack (Part 3)
 // Period 4
 
-/*
-  OOP Blackjack
-*/
 
 import java.util.Random;
 import java.util.Scanner;
