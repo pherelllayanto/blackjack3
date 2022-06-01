@@ -1,9 +1,3 @@
-// Pherell Layanto
-// 4/ /22
-// 8: BlackJack (Part 3)
-// Period 4
-
-
 import java.util.Random;
 import java.util.Scanner;
 import java.util.Arrays;
@@ -50,11 +44,13 @@ class BlackJack {
     scn.close();
   }
 
+  /* PROBABLY GAME? */
   public static void inPlay(Scanner scn, String[] hand, boolean dealer){
     printHandIntro(hand, dealer);
 
   }
-  
+
+  /* GAME */
   public static void showWinner(int bet, String[] player, String[] dealer){
     System.out.println();
     System.out.println("--------------------------------------");
@@ -67,7 +63,7 @@ class BlackJack {
     System.out.println();
   }
   
- 
+  /* GAME */
   public static void printHandIntro(String[] hand, boolean dealer){
     System.out.println();
     System.out.println("--------------------------------------");
@@ -76,11 +72,13 @@ class BlackJack {
     System.out.println();
     printHand(hand);
   }
-  
+
+  /* PLAYER OR GAME? */
   public static int getTotal(String[] hand){
     return 0;
   }
-  
+
+  /* PLAYER */
   public static void addCard(String[] player){
     for(int i =0; i < player.length; i++) {
       if(player[i] == null){
@@ -128,6 +126,7 @@ class BlackJack {
     
   }
   
+  /* DECK */
   public static String dealCard(String[] cards){
     String card = "";
     for(int i = 0; i < cards.length; i++){
@@ -140,6 +139,7 @@ class BlackJack {
     return card;
   }
   
+  /* DECK */
   public static String[] shuffle(int size) {
     String[] deck = new String[size];
     for(int i = 0; i < size; i++){
@@ -148,13 +148,14 @@ class BlackJack {
       deck[i] = makeCard(r);
       deck[r] = card;
     }
-
+    
     System.out.println();
     System.out.println("THE CARDS ARE SHUFFLED!");
     
     return deck;
   }
-  
+
+  /* DECK */
   public static String makeCard(int seed){
     int n = seed % (BASE + SPECIALS.length);
     int s = seed / (BASE + SUITES.length);
