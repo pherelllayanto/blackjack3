@@ -1,6 +1,7 @@
 ### BlackJack
-Blackjack game, includes save files, 
+Blackjack game. Includes save files, 
 swing GUI, multiple games
-- [ ] OOP (use console for now)
-- [ ] Swing 
+- [ ] Translate to OOP (console)
+- [ ] Ledger
+- [ ] Swing GUI
 - [ ] Make it look clean

@@ -17,7 +17,7 @@ public class Deck {
   public Deck() {}
   
   /*
-    INITILIAZE DECK ARRAY!!! (MOST OF THESE WILL BE RAN AT INIT)
+    METHODS FROM OG BLACKJACK FILE!!!
   */
 
   // shuffle the deck
@@ -36,7 +36,7 @@ public class Deck {
     return deck;
   }
 
-  // produce card
+  // produce card for init deck
   public static String makeCard(int seed){
     int n = seed % (BASE + SPECIALS.length);
     int s = seed / (BASE + SUITES.length);
@@ -48,20 +48,27 @@ public class Deck {
   }
 
   // deals card from itself(deck obj)
-  public static String dealCard(String[] cards){
+  public static String dealCard(){
     String card = "";
-    for(int i = 0; i < cards.length; i++){
-      card = cards[i];
-      if(card.length() > 0){
-        cards[i] = "";
+    for(int i = 0; i < DECK.length; i++){
+      card = DECK[i];
+      if(DECK.length > 0){
+        DECK[i] = "";
         return card;
       }
     }
     return card;
   }
 
-  // GET METHODS!!!!
-  public
+  // GETTER METHOD(S?)!!!!
+  public String[] getDeck() { return DECK; }
   
-  
+  public int getVal(int index) {
+    String target = DECK[index];
+    return Integer.parseInt(target.substring(1));
+  }
+
+  public String getRaw(int index) {
+    return DECK[index];
+  }
 }
