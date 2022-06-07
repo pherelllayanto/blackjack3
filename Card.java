@@ -1,5 +1,3 @@
-
-
 // used to convey the value of each card drawn,
 // manages its position in the decks of player/deck
 public class Card {
@@ -19,6 +17,8 @@ public class Card {
   public void setIndex(int index) { this.index = index; }
 
   public int getVal() { return val; }
-  public void setVal(int val) { this.val = val; }
+  // public void setVal(int val) { this.val = val; }
+
+  public String getRaw() { return raw; }
   
 }

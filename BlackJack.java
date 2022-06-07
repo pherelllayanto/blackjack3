@@ -25,7 +25,7 @@ class BlackJack {
 
     
     // MAKE A CARD TYPE
-    Card card1 = new Card(3);
+    Card card1 = new Card();
     System.out.println(card1.toString());
     System.out.println(card1.id);
     // MAKE A CARD TYPE
@@ -44,13 +44,12 @@ class BlackJack {
     scn.close();
   }
 
-  /* PROBABLY GAME? */
+  /* GAME... PROBABLY WONT USE THIS */
   public static void inPlay(Scanner scn, String[] hand, boolean dealer){
     printHandIntro(hand, dealer);
-
   }
 
-  /* GAME */
+  /* GAME... PROBABLY WONT USE THIS, WILL MAKE SIMPLER ONE */
   public static void showWinner(int bet, String[] player, String[] dealer){
     System.out.println();
     System.out.println("--------------------------------------");
@@ -63,7 +62,7 @@ class BlackJack {
     System.out.println();
   }
   
-  /* GAME */
+  /* GAME... PROBABLY WONT USE THIS */
   public static void printHandIntro(String[] hand, boolean dealer){
     System.out.println();
     System.out.println("--------------------------------------");
@@ -73,12 +72,12 @@ class BlackJack {
     printHand(hand);
   }
 
-  /* PLAYER OR GAME? */
+  /* PLAYER */
   public static int getTotal(String[] hand){
-    return 0;
+    return 0; // CHANGED IN PLAYER CLASS
   }
 
-  /* PLAYER */
+  /* DECK */
   public static void addCard(String[] player){
     for(int i =0; i < player.length; i++) {
       if(player[i] == null){
@@ -87,7 +86,8 @@ class BlackJack {
       }
     }
   }
-  
+
+  /* GAME... PROBABLY WONT USE THIS */
   public static int setup(Scanner scn, String[] dealer, String[] player){
     useTest(scn);
     System.out.println();
@@ -106,15 +106,18 @@ class BlackJack {
     return bet;
   }
 
+  /* PLAYER */ // weofjeofjewfj
   public static int whatToBet(Scanner scn){
     System.out.print("  How much will you bet? ");
     return scn.nextInt();
   }  
 
+  /* JUST DEALER */
   public static void printShow(String[] hand){
     System.out.println("  Dealer shows: ["+ hand[0] +"] [  ]");
   }
-  
+
+  /* PLAYER */
   public static void printHand(String[] hand){
     String cards = "";
     String score = " total: " + getTotal(hand);

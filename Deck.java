@@ -2,26 +2,29 @@ import java.util.Random;
 import java.util.Arrays;
 
 // deck of cards with functions, this stuff is mostly imported from BlackJack.java
+
+/* PERHAPS 6-8 DECKS POSSIBLE???? */
+
 public class Deck {
   
-  private static final String[] SUITES    = {"♠","♥","♦","♣"};
-  private static final String[] SPECIALS  = {"A","J","Q","K"};
-  private static final int      BASE      = 9; 
-  private static final int      DECK_SIZE = (SPECIALS.length + BASE) * SUITES.length;
-  private static final int      HAND_SIZE = 5;
+  private final String[] SUITES    = {"♠","♥","♦","♣"};
+  private final String[] SPECIALS  = {"A","J","Q","K"};
+  private final int      BASE      = 9; 
+  private final int      DECK_SIZE = (SPECIALS.length + BASE) * SUITES.length;
+  private final int      HAND_SIZE = 5;
   
-  private static final Random   SHUFFLER  = new Random();
-  private static /*f*/ String[] DECK      = shuffle(DECK_SIZE);
+  private final Random   SHUFFLER  = new Random();
+  private /*f*/ String[] DECK      = shuffle(DECK_SIZE);
+  private String NAME;
 
   // init
-  public Deck() {}
+  public Deck(String NAME) { 
+    this.NAME = NAME; 
+  }
   
-  /*
-    METHODS FROM OG BLACKJACK FILE!!!
-  */
 
   // shuffle the deck
-  public static String[] shuffle(int size) {
+  public String[] shuffle(int size) {
     String[] deck = new String[size];
     for(int i = 0; i < size; i++){
       int r = SHUFFLER.nextInt(size);
@@ -37,7 +40,7 @@ public class Deck {
   }
 
   // produce card for init deck
-  public static String makeCard(int seed){
+  public String makeCard(int seed){
     int n = seed % (BASE + SPECIALS.length);
     int s = seed / (BASE + SUITES.length);
 
@@ -48,7 +51,7 @@ public class Deck {
   }
 
   // deals card from itself(deck obj)
-  public static String dealCard(){
+  public String dealCard(){
     String card = "";
     for(int i = 0; i < DECK.length; i++){
       card = DECK[i];
@@ -60,7 +63,18 @@ public class Deck {
     return card;
   }
 
-  // GETTER METHOD(S?)!!!!
+  // deals to any player/dealer hand
+  public void addCard(String[] hand){
+    for(int i =0; i < hand.length; i++) {
+      if(hand[i] == null){
+        hand[i] = dealCard();
+        break;
+      }
+    }
+  }
+
+  
+  // GETTER METHODS!!!!!!!
   public String[] getDeck() { return DECK; }
   
   public int getVal(int index) {
@@ -71,4 +85,6 @@ public class Deck {
   public String getRaw(int index) {
     return DECK[index];
   }
+
+  
 }
