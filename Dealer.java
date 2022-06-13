@@ -7,7 +7,7 @@ public class Dealer extends Player {
 
   // shows hand
   public void printShow(){
-    System.out.println("  Dealer shows: ["+ hand.get(0).getRaw() +"] [  ]");
+    System.out.println("  Dealer shows: ["+ hand.get(0) +"] [  ]");
   }
   
   

@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 // manages player stuffs
 public class Player {
@@ -9,7 +8,8 @@ public class Player {
   protected int losses;
   protected double /* $ */ cash;
   /* RESETTING */ protected int score;
-  protected ArrayList<Card> hand = new ArrayList<Card>();
+  protected UUID id = UUID.randomUUID();
+  protected ArrayList<String> hand = new ArrayList<String>();
   protected Scanner scn = new Scanner(System.in);
   
   public Player(String name) {
@@ -22,8 +22,8 @@ public class Player {
   // gets total of hand
   public int getTotal(){
     int sum = 0;
-    for(Card c : hand) {
-      sum += c.getVal();
+    for(String c : hand) {
+      sum += Integer.valueOf(c.substring(1));
     }
     return sum;
   }
@@ -32,8 +32,8 @@ public class Player {
   public void printHand(){
     String cards = "";
     String score = " total: " + getTotal();
-    for(Card c : hand){
-      if(c != null) cards += "["+c.getRaw()+"] ";
+    for(String c : hand){
+      if(c != null) cards += "["+hand.get(hand.indexOf(c))+"] ";
       else cards += "     ";
     }
     System.out.println("  " +  cards + score);   
@@ -51,5 +51,6 @@ public class Player {
   public int getLoss() { return losses; }
   public double getCash() { return cash; }
   public int getScore() { return score; }
+  public UUID getUUID() { return id; }
   
 }

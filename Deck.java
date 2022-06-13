@@ -1,5 +1,5 @@
 import java.util.Random;
-import java.util.Arrays;
+import java.util.Arrays; /* USE OR NOT? */
 
 // deck of cards with functions, this stuff is mostly imported from BlackJack.java
 
@@ -14,7 +14,7 @@ public class Deck {
   private final int      HAND_SIZE = 5;
   
   private final Random   SHUFFLER  = new Random();
-  private /*f*/ String[] DECK      = shuffle(DECK_SIZE);
+  private /*f*/ String[] DECK      = shuffle(DECK_SIZE);  // inits deck
   private String NAME;
 
   // init
@@ -22,7 +22,6 @@ public class Deck {
     this.NAME = NAME; 
   }
   
-
   // shuffle the deck
   public String[] shuffle(int size) {
     String[] deck = new String[size];
@@ -65,7 +64,7 @@ public class Deck {
 
   // deals to any player/dealer hand
   public void addCard(String[] hand){
-    for(int i =0; i < hand.length; i++) {
+    for(int i = 0; i < hand.length; i++) {
       if(hand[i] == null){
         hand[i] = dealCard();
         break;
