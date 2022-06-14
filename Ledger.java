@@ -21,6 +21,7 @@ public class Ledger {
     if(mem.length() != 0) {
       memWriter.println();
     }
+    memWriter.println(p.getName()+" "+p.getUUID());
   }
 
   /* close writer, reader */

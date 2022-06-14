@@ -3,18 +3,21 @@ import java.util.*;
 // manages player stuffs
 public class Player {
   
-  protected String name;
-  protected int wins;
-  protected int losses;
-  protected double /* $ */ cash;
-  /* RESETTING */ protected int score;
-  protected UUID id = UUID.randomUUID();
-  protected ArrayList<String> hand = new ArrayList<String>();
-  protected Scanner scn = new Scanner(System.in);
+  protected String            name;
+  protected int               wins;
+  protected int               losses;
+  protected double /* $ */    cash;
+  protected int               score;
+  protected UUID              id;
+  protected ArrayList<String> hand;
+  protected Scanner           scn;
   
   public Player(String name) {
     this.name = name;
     wins = 0; losses = 0; cash = 100; score = 0;
+    id = UUID.randomUUID();
+    hand = new ArrayList<String>();
+    scn = new Scanner(System.in);
   }
 
   // METHODS (BLACKJACK)
